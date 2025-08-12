@@ -114,9 +114,13 @@
       
       if (owlStage && prevBtn && nextBtn) {
 
-        const heartElements = document.querySelectorAll('.heart');
-        heartElements.forEach(heart => {
-          heart.addEventListener('click', (e) => {
+        // Use event delegation to handle heart clicks
+        const carouselContainer = document.querySelector('.banner__opportunity');
+        if (carouselContainer) {
+          carouselContainer.addEventListener('click', (e) => {
+            const heart = e.target.closest('.heart');
+            if (!heart) return;
+            
             e.preventDefault();
             e.stopPropagation();
             
@@ -149,13 +153,8 @@
             }
             
             localStorage.setItem('favorites-list', JSON.stringify(favorites));
-            
-            const newHeart = document.querySelector(`[data-product-id="${productId}"]`);
-            if (newHeart) {
-              newHeart.addEventListener('click', arguments.callee);
-            }
           });
-        });
+        }
         
         prevBtn.addEventListener('click', () => {
           if (currentPosition > 0) {
@@ -200,4 +199,3 @@
     console.warn('Element with class "Section1 has-components" not found.');
   }
 })();
-
