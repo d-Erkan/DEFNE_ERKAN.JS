@@ -68,7 +68,7 @@
     <div class="container">
       <eb-carousel-header>
         <div class="banner__titles">
-          <h2 class="title-primary">Süper Fiyat</h2>
+          <h2 class="title-primary">Beğenebileceğinizi düşündüklerimiz</h2>
         </div>
       </eb-carousel-header>
       <div class="banner__wrapper banner__opportunity-wrapper">
@@ -200,3 +200,4 @@
     console.warn('Element with class "Section1 has-components" not found.');
   }
 })();
+
